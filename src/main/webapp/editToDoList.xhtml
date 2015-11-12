@@ -19,9 +19,12 @@
 
 			<h:column>
 				<f:facet name="toDo">Name</f:facet>
-				#{toDo.name}
+                <h:outputText value="#{toDo.name}"/>
+                <h:selectBooleanCheckbox value="#{toDo.done}"/>
 			</h:column>
 		</h:dataTable>
+
+        <h:commandButton value="submit" type="submit" action="#{toDoMB.save}" />
 
 	</h:form>
 
