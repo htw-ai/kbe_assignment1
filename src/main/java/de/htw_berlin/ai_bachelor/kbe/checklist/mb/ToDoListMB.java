@@ -13,14 +13,16 @@ public class ToDoListMB implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private ToDoList toDoList;
+    private ToDoList _toDoList;
 
     public ToDoListMB() {
         super();
-        toDoList = new ToDoList();
+        _toDoList = new ToDoList();
+        toDoList = _toDoList;
     }
 
     public ToDoList getToDoList() {
-        return toDoList;
+        return _toDoList;
     }
 
     public void setToDoList(ToDoList toDoList) {
@@ -30,6 +32,7 @@ public class ToDoListMB implements Serializable {
     //Should be called if the Button "Speichern" is pushed.
     //Needs configuration in the faces-config.xml.
     public String save() {
+        _toDoList = toDoList;
         return "save";
     }
 }
