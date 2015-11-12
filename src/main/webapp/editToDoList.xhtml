@@ -15,11 +15,11 @@
     <h:form id="form">
 
 		<h:outputText value="Meine ToDo-Liste" class="tableheader"/>
-		<h:dataTable value="#{de.htw_berlin.ai_bachelor.kbe.checklist.mb.ToDoListMB}" var="toDoList">
+		<h:dataTable value="#{toDoList.toDoList.toDos}" var="toDo">
 
 			<h:column>
 				<f:facet name="toDo">Name</f:facet>
-				#{toDoList.get(0)}
+				#{toDo.name}
 			</h:column>
 		</h:dataTable>
 
