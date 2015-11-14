@@ -9,8 +9,10 @@
     </application>
 
     <navigation-rule>
+        <from-view-id>/editToDoList.xhtml</from-view-id>
         <navigation-case>
-            <from-outcome>editToDoList</from-outcome>
+            <from-action>#{toDoList.save()}</from-action>
+            <from-outcome>save</from-outcome>
             <to-view-id>/editToDoList.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>

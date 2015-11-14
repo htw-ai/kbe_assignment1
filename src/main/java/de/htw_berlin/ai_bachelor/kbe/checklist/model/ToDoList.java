@@ -17,7 +17,14 @@ public class ToDoList implements Serializable {
 		super();
 		this.setToDos();
 	}
-	
+
+	public long getDoneCount(){
+		return toDos.stream().filter(ToDo::isDone).count();
+	}
+
+    public long getSize(){
+        return toDos.size();
+    }
 	
 	public List<ToDo> getToDos() {
 		return toDos;
