@@ -1,0 +1,20 @@
+package de.htw_berlin.ai_bachelor.kbe.checklist.mb;
+
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+/**
+ * Created by cschulze on 17.12.2015.
+ */
+@ManagedBean(name = "Timer", eager = true)
+@RequestScoped
+public class TimerMB {
+
+    private static SimpleDateFormat sdf = new SimpleDateFormat("hh:mm:ss");
+
+    public String getCurrentTime(){
+        return sdf.format(new Date());
+    }
+}
