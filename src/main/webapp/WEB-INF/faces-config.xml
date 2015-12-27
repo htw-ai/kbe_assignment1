@@ -8,9 +8,15 @@
         <message-bundle>vvskMessages_de</message-bundle>
     </application>
 
+<<<<<<< HEAD
  <!--   <navigation-rule>
+=======
+    <navigation-rule>
+        <from-view-id>/editToDoList.xhtml</from-view-id>
+>>>>>>> fb0bb9ed2dd36da85a965407cd6ad298ea74e0ad
         <navigation-case>
-            <from-outcome>editToDoList</from-outcome>
+            <from-action>#{toDoList.save()}</from-action>
+            <from-outcome>save</from-outcome>
             <to-view-id>/editToDoList.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
