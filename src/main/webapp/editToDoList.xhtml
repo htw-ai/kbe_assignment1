@@ -7,7 +7,7 @@
 
 <h:head>
 	<h:outputStylesheet library="css" name="todo.css" />
-	<title>ToDo-Liste</title>
+	<title>editToDoList</title>
 </h:head>
 
 <body>
@@ -27,6 +27,10 @@
         <h:commandButton value="submit" type="submit" action="#{toDoList.save}" />
 
 	</h:form>
+
+	<!-- <h:commandLink value="Show Time" action="#{toDoList.movetoTime()}"  /> -->
+
+	<h:link value="Show Time" outcome="showTime" />
 
 </body>
 </html>

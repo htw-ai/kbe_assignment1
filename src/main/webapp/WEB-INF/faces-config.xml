@@ -8,12 +8,23 @@
         <message-bundle>vvskMessages_de</message-bundle>
     </application>
 
-    <navigation-rule>
+ <!--   <navigation-rule>
         <navigation-case>
             <from-outcome>editToDoList</from-outcome>
             <to-view-id>/editToDoList.xhtml</to-view-id>
         </navigation-case>
-    </navigation-rule>
+        <navigation-case>
+            <from-outcome>showTime</from-outcome>
+            <to-view-id>/showTime.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule> -->
+
+
+    <lifecycle>
+        <phase-listener>
+            de.htw_berlin.ai_bachelor.kbe.checklist.mb.DebugPhaseListener
+        </phase-listener>
+    </lifecycle>
 
 
 
