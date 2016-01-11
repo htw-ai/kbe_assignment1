@@ -1,13 +1,17 @@
 package de.htw_berlin.ai_bachelor.kbe.checklist.model;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class ToDo implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
+	private static final SimpleDateFormat formatter = new SimpleDateFormat("d.M.yyyy");
 
 	private String name;
 	private boolean done = false;
+	private Date expirationDate = new Date();
 	
 	private ToDo(String name, boolean done) {
 		super();
@@ -27,6 +31,21 @@ public class ToDo implements Serializable {
 	}
 	public String getName() {
 		return name;
+	}
+	public void setExpirationDate(Date expirationDate){
+		this.expirationDate = expirationDate;
+	}
+
+	/**
+	 * see https://dzone.com/articles/bean-validation-made-simple
+	 *
+	 * @Min(value = 18, message = "Age must be greater than or equal to 18")
+	 */
+	public Date getExpirationDate(){
+		return expirationDate;
+	}
+	public String getFormattedDate(){
+		return formatter.format(expirationDate);
 	}
 	public void setName(String name) {
 		this.name = name;

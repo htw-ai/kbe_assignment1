@@ -2,13 +2,28 @@
 <faces-config version="2.2"
               xmlns="http://xmlns.jcp.org/xml/ns/javaee"
               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
+              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+                                  http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
+
+    <application>
+        <!--
+            see: http://stackoverflow.com/questions/2668161/when-to-use-message-bundle-and-resource-bundle
+            The <message-bundle> is to be used whenever you want to override JSF default warning/error messages
+             which is been used by the JSF validation/conversion stuff. You can find keys of the default
+             warning/error messages in chapter 2.5.2.4 of the JSF specification.
+             http://svn.apache.org/repos/asf/myfaces/core/branches/2.0.x/api/src/main/resources/javax/faces/Messages_de.properties
+        -->
+        <locale-config>
+            <default-locale>de</default-locale>
+            <supported-locale>en</supported-locale>
+            <supported-locale>de</supported-locale>
+        </locale-config>
+        <message-bundle>Messages</message-bundle>
+        <!--<message-bundle>de.htw_berlin.ai_bachelor.kbe.checklist.Messages</message-bundle>-->
+        <!--<message-bundle>vvskMessages_de</message-bundle>-->
+    </application>
+
     <!--
-       <application>
-           <message-bundle>vvskMessages_de</message-bundle>
-       </application>
-
-
       <navigation-rule>
 
        <navigation-rule>
@@ -31,7 +46,6 @@
             de.htw_berlin.ai_bachelor.kbe.checklist.mb.DebugPhaseListener
         </phase-listener>
     </lifecycle>
-
 
 
 </faces-config>
