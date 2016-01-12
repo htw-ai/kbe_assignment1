@@ -17,7 +17,7 @@
     <h:outputText value="Meine ToDo-Liste" class="tableheader"/>
     <br/>
     <h:outputText value="Derzeit sind #{toDoList.toDoList.doneCount} von #{toDoList.toDoList.size} ToDos erledigt"/>
-    <h:dataTable value="#{toDoList.toDoList.toDos}" var="toDo" styleClass="todoTable" columnClasses="column1,column2">
+    <h:dataTable value="#{toDoList.toDoList.toDos}" var="toDo" styleClass="todoTable" columnClasses="column1, column2">
         <h:column>
             <f:facet name="header">ToDo</f:facet>
             <h:outputText value="#{toDo.name}"/>
@@ -26,9 +26,10 @@
             <h:selectBooleanCheckbox value="#{toDo.done}"/>
         </h:column>
         <h:column>
-            <f:facet name="header">Expiration Date</f:facet>
+            <f:facet name="header">F&auml;lligkeitsdatum</f:facet>
             <!--<h:outputText value="#{toDo.expirationDate}" converter="javax.faces.DateTime"/>-->
             <h:inputText id="date" value="#{toDo.expirationDate}"
+                         validator="expirationDateValidator"
                          size="20" required="true"><!--label="Expiration Date"-->
                 <f:convertDateTime pattern="d.M.yyyy"/>
             </h:inputText>
@@ -55,6 +56,7 @@
 </h:form>
 
 <h:link value="Show Time" outcome="showTime"/>
+<h:link value="edit interval" outcome="editInterval"/>
 
 
 <h:form>

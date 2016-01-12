@@ -5,17 +5,15 @@ import de.htw_berlin.ai_bachelor.kbe.checklist.model.ToDoList;
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import javax.faces.component.UIInput;
-import javax.faces.context.FacesContext;
+import javax.validation.constraints.Min;
 import java.io.Serializable;
-import java.util.Locale;
-import java.util.ResourceBundle;
 
 @ManagedBean(name = "toDoList", eager = true)
-@ApplicationScoped
+@SessionScoped
 public class ToDoListMB implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    public static int MAX_PRIORITY = 10;
 
     private ToDoList toDoList;
     private ToDoList _toDoList;
@@ -24,14 +22,6 @@ public class ToDoListMB implements Serializable {
         super();
         _toDoList = new ToDoList();
         toDoList = _toDoList;
-
-//        FacesContext facesContext = FacesContext.getCurrentInstance();
-//        String messageBundleName = facesContext.getApplication().getMessageBundle();
-//        Locale locale = facesContext.getViewRoot().getLocale();
-//        ResourceBundle bundle = ResourceBundle.getBundle(messageBundleName, locale);
-//
-//        String message = bundle.getString(UIInput.REQUIRED_MESSAGE_ID);
-//        System.out.println(message);
     }
 
     public ToDoList getToDoList() {
@@ -47,6 +37,21 @@ public class ToDoListMB implements Serializable {
     public String save() {
         _toDoList = toDoList;
         return "save";
+    }
+
+    @Min(value = 2)
+    public int getMaxPriority(){
+        return MAX_PRIORITY;
+    }
+
+    @Min(value = 2)
+    public void setMaxPriority(int maxPriority) {
+        MAX_PRIORITY = maxPriority;
+    }
+
+    public String updateMaxPriority(){
+        //MAX_PRIORITY = newMaxPriority;
+        return "updated";
     }
 
     public void movetoTime(){
