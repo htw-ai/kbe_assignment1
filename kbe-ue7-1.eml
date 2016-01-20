@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component LANGUAGE_LEVEL="JDK_1_8" inheritJdk="true">
+	<output-test url="file://$MODULE_DIR$/target/test-classes"/>
+	<contentEntry url="file://$MODULE_DIR$">
+		<excludeFolder url="file://$MODULE_DIR$/target"/>
+	</contentEntry>
+	<lib name="Maven: junit:junit:3.8.1" scope="TEST"/>
+	<levels>
+		<level name="Maven: junit:junit:3.8.1" value="project"/>
+		<level name="Maven: com.sun.faces:jsf-api:2.2.10" value="project"/>
+		<level name="Maven: com.sun.faces:jsf-impl:2.2.10" value="project"/>
+		<level name="Maven: javax.servlet:jstl:1.2" value="project"/>
+		<level name="Maven: javax.validation:validation-api:1.1.0.Final" value="project"/>
+		<level name="Maven: javax.el:el-api:2.2" value="project"/>
+	</levels>
+</component>

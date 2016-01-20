@@ -2,7 +2,6 @@ package de.htw_berlin.ai_bachelor.kbe.checklist.mb;
 
 import de.htw_berlin.ai_bachelor.kbe.checklist.model.ToDoList;
 
-import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.validation.constraints.Min;

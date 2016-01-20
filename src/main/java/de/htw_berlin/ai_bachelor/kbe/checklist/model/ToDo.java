@@ -1,7 +1,8 @@
 package de.htw_berlin.ai_bachelor.kbe.checklist.model;
 
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
+import de.htw_berlin.ai_bachelor.kbe.checklist.validator.MyInterval;
+
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -14,6 +15,7 @@ public class ToDo implements Serializable {
     private String name;
     private boolean done = false;
     private Date expirationDate = new Date();
+    @MyInterval(max = 10)
     private int priority = 1;
 
     private ToDo(String name, boolean done) {
@@ -64,6 +66,7 @@ public class ToDo implements Serializable {
         return priority;
     }
 
+    @MyInterval(max = 10)
     public void setPriority(int priority) {
         this.priority = priority;
     }

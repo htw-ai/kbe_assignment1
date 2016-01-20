@@ -35,7 +35,18 @@
             </h:inputText>
         </h:column>
         <h:column>
+            <f:facet name="header">Prorit&auml;t</f:facet>
+            <h:inputText id="prio" value="#{toDo.priority}" />
+            <!--validator="toDoPriorityValidator"-->
+
+            <!--<h:inputText id="prio" value="#{toDo.priority}">-->
+                <!--<f:validateLongRange minimum="1" maximum="#{toDoList.maxPriority}"/>-->
+            <!--</h:inputText>-->
+
+        </h:column>
+        <h:column>
             <h:message for="date" style="color:red"/>
+            <h:message for="prio" style="color:red"/>
         </h:column>
     </h:dataTable>
 
@@ -43,7 +54,7 @@
     <!--http://java-server-faces.blogspot.de/2006/04/cancel-buttons-easy-way.html-->
 
     <h:commandLink immediate="true" update="main" action="editToDoList">
-        <h:commandButton value="cancel" />
+        <h:commandButton value="cancel"/>
     </h:commandLink>
     <!--
      type="reset"
