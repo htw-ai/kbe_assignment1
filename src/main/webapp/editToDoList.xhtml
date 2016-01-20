@@ -7,7 +7,7 @@
 
 <h:head>
 	<h:outputStylesheet library="css" name="todo.css" />
-	<title>ToDo-Liste</title>
+	<title>editToDoList</title>
 </h:head>
 
 <body>
@@ -15,18 +15,28 @@
     <h:form id="form">
 
 		<h:outputText value="Meine ToDo-Liste" class="tableheader"/>
-		<h:dataTable value="#{toDoList.toDoList.toDos}" var="toDo">
-
-			<h:column>
-				<f:facet name="toDo">Name</f:facet>
+        <br/>
+		<h:outputText value="Derzeit sind #{toDoList.toDoList.doneCount} von #{toDoList.toDoList.size} ToDos erledigt" />
+		<h:dataTable value="#{toDoList.toDoList.toDos}" var="toDo" styleClass="todoTable" columnClasses="column1,column2">
+            <h:column>
+                <f:facet name="header">ToDo</f:facet>
                 <h:outputText value="#{toDo.name}"/>
-                <h:selectBooleanCheckbox value="#{toDo.done}"/>
 			</h:column>
+            <h:column>
+                <h:selectBooleanCheckbox value="#{toDo.done}"/>
+            </h:column>
 		</h:dataTable>
 
         <h:commandButton value="submit" type="submit" action="#{toDoList.save}" />
 
 	</h:form>
+
+	<h:link value="Show Time" outcome="showTime" />
+
+
+    <h:form>
+        <h:commandLink value="Show Time" action="showTime"/>
+    </h:form>
 
 </body>
 </html>

@@ -2,12 +2,12 @@ package de.htw_berlin.ai_bachelor.kbe.checklist.mb;
 
 import de.htw_berlin.ai_bachelor.kbe.checklist.model.ToDoList;
 
+import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
 import java.io.Serializable;
 
 @ManagedBean(name = "toDoList", eager = true)
-@SessionScoped
+@ApplicationScoped
 public class ToDoListMB implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -35,4 +35,9 @@ public class ToDoListMB implements Serializable {
         _toDoList = toDoList;
         return "save";
     }
+
+    public void movetoTime(){
+    //    return "showTime";
+    }
+
 }
