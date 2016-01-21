@@ -15,7 +15,7 @@ public class ToDo implements Serializable {
     private String name;
     private boolean done = false;
     private Date expirationDate = new Date();
-    @MyInterval(max = 10)
+    @MyInterval
     private int priority = 1;
 
     private ToDo(String name, boolean done) {
@@ -66,7 +66,6 @@ public class ToDo implements Serializable {
         return priority;
     }
 
-    @MyInterval(max = 10)
     public void setPriority(int priority) {
         this.priority = priority;
     }

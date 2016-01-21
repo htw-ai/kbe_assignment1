@@ -1,6 +1,7 @@
 package de.htw_berlin.ai_bachelor.kbe.checklist.validator;
 
 import de.htw_berlin.ai_bachelor.kbe.checklist.MessageUtil;
+import de.htw_berlin.ai_bachelor.kbe.checklist.mb.PropertiesMB;
 import de.htw_berlin.ai_bachelor.kbe.checklist.mb.ToDoListMB;
 
 import javax.faces.application.FacesMessage;
@@ -24,9 +25,12 @@ public class PriorityConstraintValidator implements ConstraintValidator<MyInterv
     @Override
     public boolean isValid(Integer priority, ConstraintValidatorContext constraintValidatorContext) {
         FacesContext context = FacesContext.getCurrentInstance();
-        ToDoListMB ToDoList = (ToDoListMB) context.getELContext().getELResolver().getValue(context.getELContext(), null, "ToDoList");
+        PropertiesMB propertiesBean = (PropertiesMB) context.getELContext().getELResolver().getValue(context.getELContext(), null, "properties");
 
-        return !(ToDoListMB.MAX_PRIORITY < priority || 1 > priority);
+        Integer currenLimit = context.getApplication().evaluateExpressionGet(
+                context, String.format("#{properties.maxPrio}"), Integer.class);
+
+        return !(currenLimit < priority || 1 > priority);
 
     }
 }

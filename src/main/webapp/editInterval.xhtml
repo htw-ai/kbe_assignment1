@@ -13,28 +13,9 @@
 <body>
 <h:form id="form_max_priority">
     <h:outputText value="Maximale Priorit&auml;t:"/>
-    <h:inputText id="max_prio" value="#{toDoList.maxPriority}"/>
-    <h:commandButton value="speichern" type="submit" action="#{toDoList.updateMaxPriority}"/>
+    <h:inputText id="max_prio" value="#{properties.maxPrio}"/>
+    <h:commandButton value="speichern" type="submit" action="#{properties.update}"/>
     <h:message for="max_prio" style="color:red"/>
-</h:form>
-
-<h:form id="form_priority">
-    <h:outputText value="Priorisierung meiner ToDos" class="tableheader"/>
-    <br/>
-    <h:dataTable value="#{toDoList.toDoList.toDos}" var="toDo" styleClass="todoTable" columnClasses="column1, column1">
-        <h:column>
-            <f:facet name="header">ToDo</f:facet>
-            <h:outputText value="#{toDo.name}"/>
-        </h:column>
-        <h:column>
-            <f:facet name="header">Prorit&auml;t</f:facet>
-            <h:inputText id="prio" value="#{toDo.priority}" validator="toDoPriorityValidator"/>
-        </h:column>
-        <h:column>
-            <h:message for="prio" style="color:red"/>
-        </h:column>
-    </h:dataTable>
-    <h:commandButton value="submit" type="submit" action="#{toDoList.save}"/>
 </h:form>
 
 

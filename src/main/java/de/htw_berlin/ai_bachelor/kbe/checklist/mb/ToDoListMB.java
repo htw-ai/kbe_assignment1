@@ -12,7 +12,7 @@ import java.io.Serializable;
 public class ToDoListMB implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    public static int MAX_PRIORITY = 10;
+//    public static int MAX_PRIORITY = 10;
 
     private ToDoList toDoList;
     private ToDoList _toDoList;
@@ -38,20 +38,16 @@ public class ToDoListMB implements Serializable {
         return "save";
     }
 
-    @Min(value = 2)
-    public int getMaxPriority(){
-        return MAX_PRIORITY;
-    }
+//    @Min(value = 2)
+//    public int getMaxPriority(){
+//        return MAX_PRIORITY;
+//    }
+//
+//    @Min(value = 2)
+//    public void setMaxPriority(int maxPriority) {
+//        MAX_PRIORITY = maxPriority;
+//    }
 
-    @Min(value = 2)
-    public void setMaxPriority(int maxPriority) {
-        MAX_PRIORITY = maxPriority;
-    }
-
-    public String updateMaxPriority(){
-        //MAX_PRIORITY = newMaxPriority;
-        return "updated";
-    }
 
     public void movetoTime(){
     //    return "showTime";

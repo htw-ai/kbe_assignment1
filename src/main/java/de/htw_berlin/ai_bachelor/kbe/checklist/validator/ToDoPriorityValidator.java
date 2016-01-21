@@ -21,7 +21,11 @@ public class ToDoPriorityValidator implements Validator {
     public void validate(FacesContext facesContext, UIComponent uiComponent, Object value) throws ValidatorException {
         int priority = (int) value;
 
-        if (ToDoListMB.MAX_PRIORITY < priority)
+        FacesContext context = FacesContext.getCurrentInstance();
+        Integer currenLimit = context.getApplication().evaluateExpressionGet(
+                context, String.format("#{properties.maxPrio}"), Integer.class);
+
+        if (currenLimit < priority)
             throw new ValidatorException(new FacesMessage(MessageUtil.getMessage(facesContext, "javax.faces.validator.LongRangeValidator.MAXIMUM")));
         else if (1 > priority)
             throw new ValidatorException(new FacesMessage(MessageUtil.getMessage(facesContext, "javax.faces.validator.LongRangeValidator.MINIMUM")));
